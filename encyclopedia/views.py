@@ -3,8 +3,10 @@ from django.shortcuts import render, redirect
 from . import util
 
 from django.http import HttpResponse
-
+import markdown2
 import secrets
+
+
 
 
 #looks up entries
@@ -17,7 +19,7 @@ def result(request, title):
     if util.get_entry(title) == None:
         return render(request,"encyclopedia/error.html")
     else:
-        html_content = util.get_entry(title)
+        html_content = markdown2.markdown(util.get_entry(title))
         return render(request,"encyclopedia/title.html", {
         "title": html_content, "query": title
         })

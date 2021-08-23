@@ -1,1 +1,0 @@
-Aggressive: Boldly assertive aroma and/or taste.
